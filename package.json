@@ -1,0 +1,10 @@
+{
+  "name": "react-frontend-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix React run dev",
+    "build": "npm --prefix React run build",
+    "lint": "npm --prefix React run lint",
+    "preview": "npm --prefix React run preview"
+  }
+}
