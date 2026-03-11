@@ -6,5 +6,8 @@
     "build": "npm --prefix React run build",
     "lint": "npm --prefix React run lint",
     "preview": "npm --prefix React run preview"
+  },
+  "dependencies": {
+    "vite": "^7.3.1"
   }
 }
