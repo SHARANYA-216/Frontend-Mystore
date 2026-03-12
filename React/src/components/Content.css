@@ -7,4 +7,8 @@
     border: 1px solid gray;
     padding: 5px;
     margin: 5px;
+    transition: transform 2s;
+}
+.box:hover {
+    transform: scale(1.05);
 }
