@@ -6,42 +6,62 @@ import "./Content.css";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function Content() {
-  // const [count, setCount] = useState(0);
+
   const [products, setProducts] = useState([]);
   const { user, setUser, cart, setCart } = useContext(AppContext);
+
   const fetchProducts = async () => {
-    const url = `${API_URL}/store`;
-    const res = await axios.get(url);
-    setProducts(res.data);
+    try {
+      const url = `${API_URL}/store`;
+      const res = await axios.get(url);
+
+      // Ensure products is an array
+      setProducts(Array.isArray(res.data) ? res.data : []);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   };
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const addToCart = (product) => {
     const found = cart.find((item) => item._id === product._id);
+
     if (!found) {
-      product.quantity = 1;
-      setCart([...cart,product]);
+      const newProduct = { ...product, quantity: 1 };
+      setCart([...cart, newProduct]);
     }
   };
 
   return (
     <div>
       <div className="row">
-        {products.map((product) => (
-          <div className="box">
-            <img src={`${API_URL}/${product.imageUrl}`} width="300px" alt="" />
-            <h3>{product.name}</h3>
-            <p>{product.desc}</p>
-            <h4>{product.price}</h4>
-            <p>
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
-            </p>
-          </div>
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <div className="box" key={product._id}>
+              <img
+                src={`${API_URL}/${product.imageUrl}`}
+                width="300"
+                alt={product.name}
+              />
+              <h3>{product.name}</h3>
+              <p>{product.desc}</p>
+              <h4>{product.price}</h4>
+              <p>
+                <button onClick={() => addToCart(product)}>
+                  Add to Cart
+                </button>
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>No products available</p>
+        )}
       </div>
     </div>
   );
 }
+
 export default Content;
