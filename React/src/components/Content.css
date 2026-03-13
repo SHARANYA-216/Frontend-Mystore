@@ -7,8 +7,13 @@
     border: 1px solid gray;
     padding: 5px;
     margin: 5px;
-    transition: transform 2s;
+    width: 300px;
+    padding: 20px;
+    word-wrap: break-word;
+    margin-right:20px;
+    border-radius: 10px;
 }
-.box:hover {
-    transform: scale(1.05);
+img{
+  width:300px;
+  border-radius:10px;
 }
