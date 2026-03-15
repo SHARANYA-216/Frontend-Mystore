@@ -8,6 +8,8 @@
     "preview": "npm --prefix React run preview"
   },
   "dependencies": {
+    "gsap": "^3.14.2",
+    "ogl": "^1.0.11",
     "vite": "^7.3.1"
   }
 }
