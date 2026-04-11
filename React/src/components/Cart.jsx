@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
 import axios from "axios";
+import "./PageLayout.css";
 function Cart() {
   const { cart, setCart, user } = useContext(AppContext);
   const [orderValue, setOrderValue] = useState(0);
@@ -57,17 +58,33 @@ function Cart() {
   };
 
   return (
-    <div>
+    <div className="page">
       <h1>My Cart</h1>
-      <ol>
+      <ol className="cart-list">
         {cart &&
           cart.map((item) => (
-            <li key={item._id}>
-              {item.name}-{item.price}-
-              <button onClick={() => decrement(item._id)}>-</button>
-              {item.quantity}
-              <button onClick={() => increment(item._id)}>+</button>-
-              {item.quantity * item.price}
+            <li key={item._id} className="cart-item">
+              <span>
+                {item.name}-{item.price}
+              </span>
+              <span className="cart-qty">
+                <button
+                  className="btn btn--icon"
+                  onClick={() => decrement(item._id)}
+                  aria-label={`Decrease ${item.name}`}
+                >
+                  -
+                </button>
+                <span className="cart-qty-value">{item.quantity}</span>
+                <button
+                  className="btn btn--icon"
+                  onClick={() => increment(item._id)}
+                  aria-label={`Increase ${item.name}`}
+                >
+                  +
+                </button>
+              </span>
+              <strong>{item.quantity * item.price}</strong>
             </li>
           ))}
       </ol>
@@ -76,9 +93,13 @@ function Cart() {
       </p>
       <p>
         {user?.email ? (
-          <button onClick={placeOrder}>Place Order</button>
+          <button className="btn btn--primary" onClick={placeOrder}>
+            Place Order
+          </button>
         ) : (
-          <button onClick={() => Navigate("/login")}>Login to Order</button>
+          <button className="btn btn--primary" onClick={() => Navigate("/login")}>
+            Login to Order
+          </button>
         )}
       </p>
     </div>

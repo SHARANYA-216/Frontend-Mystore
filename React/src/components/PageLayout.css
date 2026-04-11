@@ -1,0 +1,140 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.page h1,
+.page h2 {
+  margin-bottom: 0.75rem;
+}
+
+.page p {
+  margin: 0.5rem 0;
+}
+
+.page input {
+  width: min(420px, 100%);
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.page-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid #bdbdbd;
+  background: #f7f7f7;
+  color: #111;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.btn:hover {
+  filter: brightness(0.98);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: rgb(141, 255, 47);
+  border-color: rgb(141, 255, 47);
+}
+
+.btn--full {
+  width: min(420px, 100%);
+}
+
+.btn--icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-list {
+  padding-left: 1.25rem;
+}
+
+.cart-item {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cart-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-qty-value {
+  min-width: 2ch;
+  text-align: center;
+}
+
+.orders-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.order-id {
+  font-size: 1.05rem;
+}
+
+.order-items {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.order-item-total {
+  font-weight: 600;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.5rem;
+}

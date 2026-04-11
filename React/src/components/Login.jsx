@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./PageLayout.css";
 function Login() {
   const { user, setUser,cart } = useContext(AppContext);
   const API_URL = import.meta.env.VITE_API_URL;
@@ -15,7 +16,7 @@ function Login() {
     else Navigate("/");
   };
   return (
-    <div>
+    <div className="page">
       <h2>Login Page</h2>
       <p>
         <input
@@ -32,7 +33,9 @@ function Login() {
         />
       </p>
       <p>
-        <button onClick={handleLogin}>Login</button>
+        <button className="btn btn--primary btn--full" onClick={handleLogin}>
+          Login
+        </button>
       </p>
       <p>
         <Link to="/register">New user register here</Link>

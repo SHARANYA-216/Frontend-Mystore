@@ -13,18 +13,20 @@ function App() {
   const [user, setUser] = useState({});
   const [cart,setCart] = useState([])
   return (
-    <div>
+    <div className="app-shell">
       <AppContext.Provider value={{ user, setUser,cart,setCart }}>
         <BrowserRouter>
           <Header />
-          <Routes>
-            <Route index element={<Content />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="login" element={<Login />} />
-            <Route path="logout" element={<Logout />} />
-            <Route path="register" element={<Register />} />
-            <Route path="orders" element={<Orders />} />
-          </Routes>
+          <main className="app-main">
+            <Routes>
+              <Route index element={<Content />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="login" element={<Login />} />
+              <Route path="logout" element={<Logout />} />
+              <Route path="register" element={<Register />} />
+              <Route path="orders" element={<Orders />} />
+            </Routes>
+          </main>
           <Footer />
         </BrowserRouter>
       </AppContext.Provider>

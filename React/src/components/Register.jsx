@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./PageLayout.css";
 function Register() {
   const [user, setUser] = useState({});
   const API_URL = import.meta.env.VITE_API_URL;
@@ -12,7 +13,7 @@ function Register() {
     Navigate("/login");
   };
   return (
-    <div>
+    <div className="page">
       <h2>Registration Page</h2>
       <p>
         <input
@@ -36,7 +37,9 @@ function Register() {
         />
       </p>
       <p>
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="btn btn--primary btn--full" onClick={handleSubmit}>
+          Submit
+        </button>
       </p>
       <p>
         <Link to="/login">Already a member? Login here</Link>
